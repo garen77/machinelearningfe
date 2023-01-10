@@ -1,0 +1,24 @@
+@import './themeColors.scss';
+$theme-font:    verdana, sans-serif;
+
+body {
+  font: $theme-font;
+  background-color: $themeColor-Light;
+  h1, h2 {
+      color: $themeColor-Dark
+  }
+  height: 100%;
+
+}
+
+html {height: 100%;}
+
+.container {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  -webkit-flex-flow: column nowrap;  
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
