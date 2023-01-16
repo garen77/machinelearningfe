@@ -26,6 +26,7 @@ function CustomFileInput() {
             </button>
             <input 
                 type="file"
+                accept="image/png, image/jpeg"
                 ref={inputref}
                 onChange={handleFileChange}
                 style={{display: 'none'}}
