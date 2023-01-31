@@ -3,34 +3,54 @@ import React, { useRef, useState } from "react";
 import './CustomFileInput.scss';
 
 function CustomFileInput() {
-    const inputref = useRef();
-    const [file, setFile] = useState(null);
+    const inputRef = useRef(null);
+    const anchorRef = useRef();
+    const [fileStatus, setFileStatus] = useState({});
 
     const handleUploadClick = () =>{
-        inputref.current?.click();
+        inputRef.current?.click();
     };
 
     const handleFileChange = (e) => {
         if(!e.target.files) {
             return;
         }
+        
+        var fieObj = URL.createObjectURL(e.target.files[0]);
+        var fileName = e.target.files[0].name;
+        setFileStatus({
+            file : fieObj,
+            name: fileName
+        });
 
-        setFile(e.target.files[0]);
+        var a = document.getElementById('iddownload');
+        if(a) {
+            a.href = fieObj;
+            a.download = fileName;
+            anchorRef.current?.click();
+        }
+
+       
     };
 
     return (
-        <div>
+        <div className="text-align-center">
             <div>Upload an image</div>
-            <button onClick={handleUploadClick}>
-                {file ? `${file.name}` : 'Click to select'}
-            </button>
+            <div style={{display: 'inline-flex'}}>
+                <button onClick={handleUploadClick}>
+                    {fileStatus && fileStatus.name ? `${fileStatus.name}` : 'Click to select'}
+                </button>
+                <img src={fileStatus.file}></img>
+            </div>
+
             <input 
                 type="file"
                 accept="image/png, image/jpeg"
-                ref={inputref}
+                ref={inputRef}
                 onChange={handleFileChange}
                 style={{display: 'none'}}
             />
+            <a id="iddownload" href="#" ref={anchorRef} />
         </div>
     );
 }
