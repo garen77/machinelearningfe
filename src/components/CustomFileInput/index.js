@@ -44,7 +44,7 @@ function CustomFileInput() {
                 <button onClick={handleUploadClick}>
                     {fileStatus && fileStatus.name ? `${fileStatus.name}` : 'Click to select'}
                 </button>
-                <img src={fileStatus.file} onClick={}></img>
+                <img src={fileStatus.file} onClick={onClickImage}></img>
             </div>
 
             <input 
