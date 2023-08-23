@@ -33,6 +33,10 @@ function CustomFileInput() {
        
     };
 
+    const onClickImage = (e) => {
+        alert("image clicked!!!");
+    }
+
     return (
         <div className="text-align-center">
             <div>Upload an image</div>
@@ -40,7 +44,7 @@ function CustomFileInput() {
                 <button onClick={handleUploadClick}>
                     {fileStatus && fileStatus.name ? `${fileStatus.name}` : 'Click to select'}
                 </button>
-                <img src={fileStatus.file}></img>
+                <img src={fileStatus.file} onClick={}></img>
             </div>
 
             <input 
