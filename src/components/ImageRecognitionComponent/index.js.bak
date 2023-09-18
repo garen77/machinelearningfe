@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 
-import './CustomFileInput.scss';
+import './ImageRecognitionComponent.scss';
 
-function CustomFileInput() {
+function ImageRecognitionComponent() {
     const inputref = useRef();
     const [file, setFile] = useState(null);
 
@@ -35,4 +35,4 @@ function CustomFileInput() {
     );
 }
 
-export default CustomFileInput;
+export default ImageRecognitionComponent;

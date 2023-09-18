@@ -1,8 +1,8 @@
 import React from 'react';
-import CustomFileInput from '../components/CustomFileInput';
+import ImageRecognitionComponent from '../components/ImageRecognitionComponent';
 
 
-const ImageRecognition = () => {
+const ImageRecognition = (props) => {
 
 
 
@@ -14,7 +14,7 @@ const ImageRecognition = () => {
     <>
       <div className='container'>
         <h1>Image Recognition</h1>
-        <CustomFileInput />
+        <ImageRecognitionComponent />
       </div>
       
     </>
