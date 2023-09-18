@@ -27,7 +27,7 @@ const ImageRecognition = () => {
       <div className='container'>
         <h1>Image Recognition</h1>
         {
-          !model ? (<LoadingSpinner />) : (<CustomFileInput />)
+          !model ? (<LoadingSpinner message={"Loading mobilenet model..."} />) : (<CustomFileInput />)
         }  
       </div>
       
