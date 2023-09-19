@@ -37,7 +37,7 @@ const App = () => {
           <NavBar />
             <Routes>
               <Route path="/" exact element={ <Home /> }/>
-              <Route path="/imageRecognition" element={ <ImageRecognition /> } />
+              <Route path="/imageRecognition" element={ <ImageRecognition model={model} /> } />
               <Route path="/about" element={ <About /> } />
             </Routes>
           </BrowserRouter>

@@ -14,7 +14,7 @@ const ImageRecognition = (props) => {
     <>
       <div className='container'>
         <h1>Image Recognition</h1>
-        <ImageRecognitionComponent />
+        <ImageRecognitionComponent model={props.model}/>
       </div>
       
     </>
