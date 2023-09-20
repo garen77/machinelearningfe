@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-
+import ReactModal from 'react-modal';
 import './ImageRecognitionComponent.scss';
 
 function ImageRecognitionComponent(props) {
@@ -8,6 +8,7 @@ function ImageRecognitionComponent(props) {
     const canvasRef = useRef(null);
     const [fileStatus, setFileStatus] = useState({});
     const [predictions, setPredictions] = useState([]);
+    const [isPopupPredOpen, setPopupPredOpen] = useState(false);
 
     const handleUploadClick = () =>{
         inputRef.current?.click();
@@ -35,9 +36,18 @@ function ImageRecognitionComponent(props) {
        
     };
 
-    const onClickImage = (e) => {
-        alert("image clicked!!!");
-    }
+    const renderPopupPred = () => (
+        <div>
+            <ul>
+                {
+                    predictions.map(el => (
+                        <li>{el.className}</li>
+                    ))
+                }
+            </ul>
+            <button onClick={() => setPopupPredOpen(false)}></button>
+        </div>
+    );
 
     const drawImageOnCanvas = (image, canvas, ctx) => {
         const naturalWidth = image.naturalWidth;
@@ -68,6 +78,7 @@ function ImageRecognitionComponent(props) {
         const predictions = await props.model.classify(canvas, 5);
         console.log(predictions)
         setPredictions(predictions);
+        setPopupPredOpen(true);
       };
 
     const renderPreview = () => (
@@ -95,6 +106,7 @@ function ImageRecognitionComponent(props) {
                 />            
             </div>
             {fileStatus && fileStatus.file && renderPreview()}
+            {predictions && predictions.length > 0 && renderPopupPred()}
         </>
     );
 }
