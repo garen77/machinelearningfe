@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import ReactModal from 'react-modal';
+import { Popup } from "../Popup";
 import './ImageRecognitionComponent.scss';
 
 function ImageRecognitionComponent(props) {
@@ -8,7 +8,7 @@ function ImageRecognitionComponent(props) {
     const canvasRef = useRef(null);
     const [fileStatus, setFileStatus] = useState({});
     const [predictions, setPredictions] = useState([]);
-    const [isPopupPredOpen, setPopupPredOpen] = useState(false);
+    const [popupPredOpen, setPopupPredOpen] = useState(false);
 
     const handleUploadClick = () =>{
         inputRef.current?.click();
@@ -37,7 +37,7 @@ function ImageRecognitionComponent(props) {
     };
 
     const renderPopupPred = () => (
-        <div>
+        <Popup closePopup={() => setPopupPredOpen(false)}>
             <ul>
                 {
                     predictions.map(el => (
@@ -45,8 +45,7 @@ function ImageRecognitionComponent(props) {
                     ))
                 }
             </ul>
-            <button onClick={() => setPopupPredOpen(false)}></button>
-        </div>
+        </Popup>
     );
 
     const drawImageOnCanvas = (image, canvas, ctx) => {
@@ -78,7 +77,6 @@ function ImageRecognitionComponent(props) {
         const predictions = await props.model.classify(canvas, 5);
         console.log(predictions)
         setPredictions(predictions);
-        setPopupPredOpen(true);
       };
 
     const renderPreview = () => (
@@ -92,9 +90,7 @@ function ImageRecognitionComponent(props) {
             <div className="text-align-center">
                 <div>Upload an image</div>
                 <div style={{display: 'inline-flex'}}>
-                    <button onClick={handleUploadClick}>
-                        {fileStatus && fileStatus.name ? `${fileStatus.name}` : 'Click to select'}
-                    </button>
+                    <button onClick={handleUploadClick}>Click to select</button>
                 </div>
 
                 <input 
@@ -105,8 +101,9 @@ function ImageRecognitionComponent(props) {
                     style={{display: 'none'}}
                 />            
             </div>
+            {predictions && predictions.length > 0 && !popupPredOpen &&<button onClick={() => setPopupPredOpen(true)}>View predictions</button>}
             {fileStatus && fileStatus.file && renderPreview()}
-            {predictions && predictions.length > 0 && renderPopupPred()}
+            {predictions && predictions.length > 0 && popupPredOpen && renderPopupPred()}
         </>
     );
 }
