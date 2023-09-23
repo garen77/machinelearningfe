@@ -11,8 +11,8 @@
 
 .popup-body {
     position: absolute;
-    left: 30%;
-    right: 30%;
+    left: 40%;
+    right: 40%;
     bottom: 30%;
     top: 30%;
     text-align: center;
@@ -21,4 +21,8 @@
     border-color: black;
     background: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.popup-close-button {
+    margin-left: 80%;
 }

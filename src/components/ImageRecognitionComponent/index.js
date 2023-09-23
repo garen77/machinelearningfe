@@ -41,7 +41,7 @@ function ImageRecognitionComponent(props) {
             <ul>
                 {
                     predictions.map(el => (
-                        <li>{el.className}</li>
+                        <li key={el.className}>{el.className.split(",")[0]} - {el.probability.toFixed(2)} %</li>
                     ))
                 }
             </ul>
