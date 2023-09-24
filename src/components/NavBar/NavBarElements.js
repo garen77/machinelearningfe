@@ -52,7 +52,9 @@ const StyledBurgerContent = styled.nav`
     text-transform: uppercase;
     padding: 2rem 0;
     font-weight: bold;
-    letter-spacing: 0.5rem;
+    @media screen and (min-width: 768px) {
+      letter-spacing: 0.5rem;
+    }    
     color: #0D0C1D;
     text-decoration: none;
     transition: color 0.3s linear;
