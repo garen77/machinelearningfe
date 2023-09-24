@@ -19,6 +19,9 @@ export const NavLink = styled(Link)`
     text-decoration: none;
     padding: 0 1rem;
     height: 100%;
+    @media screen and (max-width: 768px) {
+      height: 10%;
+    }
     cursor: pointer;
     &.active {
         color: #000000;
