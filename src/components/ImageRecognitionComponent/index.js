@@ -38,7 +38,7 @@ function ImageRecognitionComponent(props) {
 
     const renderPopupPred = () => (
         <Popup closePopup={() => setPopupPredOpen(false)}>
-            <ul>
+            <ul className="list-item">
                 {
                     predictions.map(el => (
                         <li key={el.className}>{el.className.split(",")[0]} - {el.probability.toFixed(2)} %</li>
