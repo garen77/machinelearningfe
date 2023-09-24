@@ -2,15 +2,19 @@ import React from "react";
 import {
     Nav,
     NavLink,
-    Bars,
-    NavMenu
+    NavMenu,
+    Hamburger,
+    MenuContent
 } from './NavBarElements';
 
 const NavBar = () => {
+    const [open, setOpen] = React.useState(false);
+
     return (
         <>
             <Nav>
-                <Bars/>
+                <Hamburger open={open} setOpen={setOpen} />
+                <MenuContent open={open} setOpen={setOpen} />
                 <NavMenu>
                     <NavLink to='/'>
                         Home
