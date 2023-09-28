@@ -1,3 +1,5 @@
+@import '../../styles/themeColors.scss';
+
 .Menu{
     position: relative;
     margin: 2em 3em;
@@ -13,8 +15,8 @@
     top: 0;
     
     width: 8.5em;
-    background-color: #301A4B;
-    box-shadow: 1px 2px 2px #301A4B;
+    background-color: $menu;
+    box-shadow: 1px 2px 2px $menu;
 
     padding: 0.2em;
     
@@ -48,7 +50,7 @@
 }
 .open-2{
     top: 3.6em;
-    background-color: #f15bb5;
+    background-color: $pink;
 }
 .open-3{
     top: 5.4em;
