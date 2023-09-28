@@ -23,24 +23,7 @@
 }
 
 .popup-body {
-    /*position: absolute;
-    left: 40%;
-    right: 40%;
-    bottom: 30%;
-    top: 30%;
-    text-align: center;
-    margin: auto;
-    border-radius: 15px;
-    border-color: black;
-    background: white;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-    @media screen and (max-width: 768px) {
-        left: 30%;
-        right: 30%;
-        font-size: 15px;
-    }*/
-
+    
     width: 100%;
     display: flex;
     justify-content: center;
@@ -59,11 +42,4 @@
     align-self: flex-end;
     justify-self: flex-start;
     margin-top: 0 !important;
-}
-
-.popup-close-button {
-    margin-left: 80%;
-    @media screen and (max-width: 768px) {
-        margin-left: 65%;
-    }
 }
